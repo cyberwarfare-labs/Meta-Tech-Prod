@@ -1,0 +1,17 @@
+version: '3'
+services:
+  meta-app:
+    container_name: meta-app-c1
+    build: .
+    volumes:
+      - './static/:/var/www/html/'
+    ports:
+      - '7887:8080'
+
+  database:
+    container_name: meta-database-c1
+    image: 'postgres:14-alpine'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: pass
